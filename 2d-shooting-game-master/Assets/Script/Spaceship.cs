@@ -12,6 +12,11 @@ public class Spaceship : MonoBehaviour {
 	public GameObject bullet;
 	public bool canShot;
 	public GameObject explosion;
+	private Animator animator;
+
+	void Start(){
+		animator = GetComponent<Animator> ();
+	}
 
 	public void Explosion(){
 		Instantiate (explosion, transform.position, transform.rotation);
@@ -24,5 +29,10 @@ public class Spaceship : MonoBehaviour {
 	public void Move(Vector2 direction){
 		GetComponent<Rigidbody2D> ().velocity = direction * speed;
 	}
+
+	public Animator GetAnimator(){
+		return animator;
+	}
+
 
 }
